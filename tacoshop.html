@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buy a Taco</title>
+</head>
+<body>
+    <h1>Welcome to the Taco Shop!</h1>
+    <p>Buy a delicious taco for $5.</p>
+    
+    <button id="buyButton">Buy Taco</button>
+    <p id="message"></p>
+    
+    <script>
+        // Function to handle the taco purchase
+        function buyTaco() {
+            // Simulate the purchase process
+            // In a real application, you would likely have some payment processing logic here
+            const price = 5;
+            const userBalance = parseFloat(prompt("Enter your balance:"));
+            
+            if (isNaN(userBalance)) {
+                showMessage("Invalid balance input. Please enter a valid number.");
+                return;
+            }
+            
+            if (userBalance < price) {
+                showMessage("Insufficient balance. You need at least $" + price + " to buy a taco.");
+            } else {
+                showMessage("Taco purchased! Enjoy your meal!");
+            }
+        }
+        
+        // Function to display messages
+        function showMessage(message) {
+            document.getElementById("message").textContent = message;
+        }
+        
+        // Add event listener to the buy button
+        document.getElementById("buyButton").addEventListener("click", buyTaco);
+    </script>
+</body>
+</html>
